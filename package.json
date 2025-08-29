@@ -1,0 +1,81 @@
+{
+  "name": "no-neck-pain",
+  "displayName": "no neck pain",
+  "publisher": "octo-potato",
+  "description": "Move cursor to center or top of editor vertically",
+  "version": "1.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "no-neck-pain.centerCursor",
+        "title": "Center Cursor",
+        "category": "Center Cursor"
+      },
+      {
+        "command": "no-neck-pain.topCursor",
+        "title": "Move Cursor to Top",
+        "category": "Center Cursor"
+      }
+    ],
+    "configuration": {
+      "title": "No Neck Pain",
+      "properties": {
+        "no-neck-pain.centerOffset": {
+          "type": "number",
+          "default": -3,
+          "minimum": -40,
+          "maximum": 40,
+          "description": "Offset from center as number of lines. Negative values move cursor above center, positive values move it below center."
+        },
+        "no-neck-pain.startOffset": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 40,
+          "description": "Offset from start as number of lines."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "no-neck-pain.centerCursor",
+        "key": "ctrl+' ctrl+c",
+        "mac": "cmd+' cmd+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "no-neck-pain.topCursor",
+        "key": "ctrl+' ctrl+t",
+        "mac": "cmd+' cmd+t",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.103.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
