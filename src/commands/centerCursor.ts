@@ -21,7 +21,7 @@ export function centerCursor(): void {
             const targetCenterLine = Math.floor(viewportHeight / 2);
 
             // Apply the offset to get the desired position in viewport
-            const desiredViewportPosition = targetCenterLine - centerOffsetLines;
+            const desiredViewportPosition = targetCenterLine + centerOffsetLines;
 
             // Calculate how many lines to scroll
             const currentCursorPositionInViewport = currentPosition.line - viewportStartLine;

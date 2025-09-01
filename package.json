@@ -30,7 +30,7 @@
       "properties": {
         "no-neck-pain.centerOffset": {
           "type": "number",
-          "default": -3,
+          "default": -10,
           "minimum": -40,
           "maximum": 40,
           "description": "Offset from center as number of lines. Negative values move cursor above center, positive values move it below center."
